@@ -2,6 +2,10 @@ streamlit==1.35.0
 opencv-python==4.9.0.80
 scikit-learn==1.4.2
 numpy==1.26.4
-Pillow==11.1.0
-scikit-image==0.25.2
-
+pandas==2.2.2
+matplotlib==3.8.4
+# اگر از پکیج‌های دیگری استفاده می‌کنید، آن‌ها را در اینجا اضافه کنید.
+# مثال:
+Pillow==10.3.0
+# imutils==0.5.10
+# scipy==1.13.0
