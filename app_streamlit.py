@@ -62,7 +62,7 @@ if uploaded_file is not None:
                 # تبدیل تصویر اصلی به numpy
                 original_image_np = np.array(original_image_pil)
                 
-                 if original_image_np.ndim == 2: # اگر grayscale است
+                if original_image_np.ndim == 2: # اگر grayscale است
                     original_image_np = cv2.cvtColor(original_image_np, cv2.COLOR_GRAY2RGB)
                 elif original_image_np.shape[2] == 4: # اگر RGBA است
                     original_image_np = cv2.cvtColor(original_image_np, cv2.COLOR_RGBA2RGB)
