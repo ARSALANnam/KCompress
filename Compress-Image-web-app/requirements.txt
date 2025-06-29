@@ -1,6 +1,7 @@
 streamlit
-opencv-python
+opencv-python==4.9.0.80
 numpy
 scikit-learn
 Pillow
 scikit-image
+python_vrsion < 3.13
