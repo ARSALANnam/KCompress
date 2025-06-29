@@ -61,11 +61,15 @@ if uploaded_file is not None:
                 
                 # تبدیل تصویر اصلی به numpy
                 original_image_np = np.array(original_image_pil)
+                
+                 if original_image_np.ndim == 2: # اگر grayscale است
+                    original_image_np = cv2.cvtColor(original_image_np, cv2.COLOR_GRAY2RGB)
+                elif original_image_np.shape[2] == 4: # اگر RGBA است
+                    original_image_np = cv2.cvtColor(original_image_np, cv2.COLOR_RGBA2RGB)
+                    
                 original_image_np_bgr = cv2.cvtColor(original_image_np, cv2.COLOR_RGB2BGR)
 
                 start_time = time.time()
-                for i in range(1000000):
-                    pass
 
 
                 # Call the compression function
@@ -76,8 +80,12 @@ if uploaded_file is not None:
                 
                 # SSIM
                 compressed_rgb = cv2.cvtColor(compressed_np, cv2.COLOR_BGR2RGB)
-                ssim_value = ssim(original_image_np, compressed_rgb, multichannel=True, data_range=255, win_size=3)
-
+                # ssim_value = ssim(original_image_np, compressed_rgb, multichannel=True, data_range=255, win_size=3)
+                original_image_for_ssim = original_image_np.astype(np.uint8)
+                compressed_image_for_ssim = compressed_rgb.astype(np.uint8)
+                
+                ssim_value = ssim(original_image_for_ssim, compressed_image_for_ssim, multichannel=True, data_range=255, win_size=3)
+                
                 # محاسبه حجم
                 original_size_kb = len(original_image_bytes) / 1024
                 compressed_size_kb = len(compressed_image_bytes) / 1024
