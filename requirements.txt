@@ -1,7 +1,7 @@
-streamlit==1.6.1
-opencv-python==4.11.0.86
+streamlit==1.35.0
+opencv-python==4.9.0.80
 scikit-learn==1.4.2
-numpy==2.2.6
+numpy==1.26.4
 Pillow==11.1.0
 scikit-image==0.25.2
 

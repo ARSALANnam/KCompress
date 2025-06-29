@@ -1,0 +1,6 @@
+compatibility]
+# Use Python 3.10
+# If your app runs on an older version of Python,
+# you might need to specify a lower version here.
+# For example: python = 3.9
+python = 3.10 
